@@ -27,7 +27,7 @@ NesysEmu::NesysEmu()
 
 	m_commandHandlers[LCOMMAND_CONNECT_REQUEST] = [=](const uint8_t* data, size_t length)
 	{
-		if (GameDetect::currentGame != GameID::SFV) 
+		 
 		{
                   SendResponse(SCOMMAND_CONNECT_REPLY, nullptr);
 
@@ -77,12 +77,7 @@ NesysEmu::NesysEmu()
 
                   SendResponse(SCOMMAND_CERT_INIT_NOTICE, response, sizeof(nesys_cert_init_response) + strlen(wat));
                   free(response);
-                }
-		else 
-		{
-                  SendResponse(SCOMMAND_CERT_ERROR, nullptr);
-                }
-	};
+};
 
 	m_commandHandlers[LCOMMAND_DISCONNECT_REQUEST] = [=](const uint8_t* data, size_t length)
 	{
